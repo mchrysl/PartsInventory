@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="582.0" prefWidth="965.0" style="-fx-border-style: solid; -fx-border-insets: 10; -fx-border-color: grey; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="addProductLbl" layoutX="103.0" layoutY="55.0" text="Add Product">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="addProductSearchBtn" layoutX="551.0" layoutY="87.0" mnemonicParsing="false" onAction="#searchPartButtonClicked" text="Search" />
+      <TextField fx:id="addProductSearchTxt" layoutX="614.0" layoutY="87.0" prefHeight="25.0" prefWidth="249.0" />
+      <TableView fx:id="assocPartProductTable" layoutX="403.0" layoutY="129.0" prefHeight="150.0" prefWidth="520.0" AnchorPane.topAnchor="129.0">
+        <columns>
+          <TableColumn fx:id="partIdColumn" prefWidth="123.0" text="Part ID">
+              <cellValueFactory>
+                          <PropertyValueFactory property="id" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="partNameColumn" prefWidth="152.0" text="Part Name">
+              <cellValueFactory>
+                          <PropertyValueFactory property="name" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn fx:id="inventoryColumn" prefWidth="126.0" text="Inventory Level">
+                <cellValueFactory>
+                          <PropertyValueFactory property="stock" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Button fx:id="addProductBtn" layoutX="812.0" layoutY="297.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="25.0" prefWidth="65.0" text="Add" />
+      <Button fx:id="addProductDeleteBtn" layoutX="812.0" layoutY="497.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+      <Button fx:id="addProductCancelBtn" layoutX="812.0" layoutY="544.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="65.0" text="Cancel" />
+      <Button fx:id="addProductSaveBtn" layoutX="716.0" layoutY="544.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="65.0" text="Save" />
+      <Label fx:id="addProductIdLbl" layoutX="43.0" layoutY="174.0" text="ID" />
+      <TextField fx:id="idTxt" disable="true" editable="false" layoutX="113.0" layoutY="170.0" text="Auto Gen - Disabled">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </TextField>
+      <Label fx:id="addProductNameLbl" layoutX="42.0" layoutY="220.0" text="Name" />
+      <Label fx:id="addProductInventoryLbl" layoutX="41.0" layoutY="270.0" text="Inv" />
+      <Label fx:id="addProductPriceLbl" layoutX="41.0" layoutY="313.0" text="Price" />
+      <Label fx:id="addProductMaxLbl" layoutX="43.0" layoutY="367.0" text="Max" />
+      <TextField fx:id="addProductNameTxt" layoutX="113.0" layoutY="216.0" promptText="Product Name">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="addProductInvTxt" layoutX="113.0" layoutY="266.0" prefHeight="25.0" prefWidth="65.0" promptText="Inv">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="addProductPriceTxt" layoutX="113.0" layoutY="309.0" prefHeight="25.0" prefWidth="65.0" promptText="Price">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="addProductMaxTxt" layoutX="113.0" layoutY="363.0" prefHeight="25.0" prefWidth="65.0" promptText="Max">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></TextField>
+      <Label fx:id="addProductMinLbl" layoutX="210.0" layoutY="367.0" text="Min" />
+      <TextField fx:id="addProductMinTxt" layoutX="243.0" layoutY="363.0" prefHeight="25.0" prefWidth="65.0" promptText="Min">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></TextField>
+      <TableView fx:id="disPartProductTable" layoutX="403.0" layoutY="335.0" prefHeight="150.0" prefWidth="520.0">
+        <columns>
+          <TableColumn fx:id="assocPartIdCol" prefWidth="128.0" text="Part ID">
+              <cellValueFactory>
+                  <PropertyValueFactory property="id" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="assocPartNameCol" prefWidth="157.0" text="Part Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn fx:id="assocPartInvCol" prefWidth="117.0" text="Inventory">
+                <cellValueFactory>
+                    <PropertyValueFactory property="stock" />
+                </cellValueFactory>
+            </TableColumn>    
+        </columns>
+      </TableView>
+      <Label fx:id="mustHavePartLbl" layoutX="441.0" layoutY="547.0" text="Add at least one part to the Product" textFill="#f00303" visible="false">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="minMaxWarnLbl" layoutX="43.0" layoutY="427.0" text="*Min must be less than Max" textFill="#f00303" visible="false">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="inventoryWarnLbl" layoutX="45.0" layoutY="457.0" text="*Inv must be greater than Min and less than Max" textFill="#f00303" visible="false">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceWarnLbl" layoutX="44.0" layoutY="485.0" prefHeight="44.0" prefWidth="228.0" text="*Price must be greater than the sum of the sum of the Parts' prices" textFill="#f00303" visible="false" wrapText="true">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="mustEnterDataLbl" layoutX="45.0" layoutY="531.0" textFill="#f00303">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="104.0" layoutY="314.0" text="\$" />
+   </children>
+</AnchorPane>
